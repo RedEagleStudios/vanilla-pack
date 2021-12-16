@@ -14,9 +14,6 @@ jobs:
     - name: Checkout Branch
       uses: actions/checkout@v2
 
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
-
     - name: Download Behaviour & Resource Pack
       run: |
         wget https://aka.ms/behaviorpacktemplate -O behavior_pack.zip
@@ -36,3 +33,6 @@ jobs:
       run: |
         rm behavior_pack.zip
         rm resource_pack.zip
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
