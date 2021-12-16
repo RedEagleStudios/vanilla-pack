@@ -1,0 +1,38 @@
+name: Android PR Build
+
+on:
+  pull_request:
+    branches:
+      - workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Branch
+      uses: actions/checkout@v2
+
+    - name: Download Behaviour & Resource Pack
+      run: |
+        wget https://aka.ms/behaviorpacktemplate -O behavior_pack.zip
+        wget https://aka.ms/resourcepacktemplate -O resource_pack.zip
+
+    - name: Unzip Behaviour Pack
+      uses: montudor/action-zip@v1
+      with:
+        args: unzip -qq behavior_pack.zip -d 'Vanilla BP'
+    
+    - name: Unzip Resource Pack
+      uses: montudor/action-zip@v1
+      with:
+        args: unzip -qq resource_pack.zip -d 'Vanilla RP'
+
+    - name: Delete Behaviour & Resource Pack
+      run: |
+        rm behavior_pack.zip
+        rm resource_pack.zip
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
