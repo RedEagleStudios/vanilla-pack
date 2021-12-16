@@ -20,12 +20,12 @@ jobs:
     - name: Unzip Behaviour Pack
       uses: montudor/action-zip@v1
       with:
-        args: unzip -qq behavior_pack.zip -d 'Vanilla BP'
+        args: unzip behavior_pack.zip "Vanilla BP"
     
     - name: Unzip Resource Pack
       uses: montudor/action-zip@v1
       with:
-        args: unzip -qq resource_pack.zip -d 'Vanilla RP'
+        args: unzip resource_pack.zip "Vanilla RP"
 
     - name: Delete Behaviour & Resource Pack
       run: |
