@@ -34,7 +34,7 @@ jobs:
         rm behavior_pack.zip
         rm resource_pack.zip
 
-    - name: Create Pull Request
+    - name: Create Commit
       run: |
         git add -A .
         git config --global user.email "bot@github.com"
@@ -47,11 +47,8 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: pr-pages
 
-    - uses: repo-sync/pull-request@v2
-      name: pull-request
-      with:
-        destination_branch: "main"
-        pr_title: "Pulling Mojang into main"
-        pr_body: "👑 *An automated PR*"
-        pr_draft: false
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create Pull Request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh pr create --title "Sync Mojang" --body "Pull from latest Mojang"
