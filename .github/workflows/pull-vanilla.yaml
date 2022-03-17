@@ -37,6 +37,8 @@ jobs:
     - name: Create Pull Request
       run: |
         git add -A .
+        git config --global user.email "bot@github.com"
+        git config --global user.name "Github Bot"
         git commit -m "Sync with mojang"
 
     - name: Push changes
