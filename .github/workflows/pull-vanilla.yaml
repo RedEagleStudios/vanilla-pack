@@ -51,4 +51,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh pr create --title "Sync Mojang" --body "Pull from latest Mojang"
+        gh pr create --title "Sync Mojang" --body "Pull from latest Mojang" --head pr-pages
