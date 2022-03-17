@@ -34,8 +34,8 @@ jobs:
         rm behavior_pack.zip
         rm resource_pack.zip
 
-      - name: Create pull request
-        uses: devops-infra/action-pull-request@v0.4.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          title: Automatic pull request
+    - name: Create pull request
+      uses: devops-infra/action-pull-request@v0.4.2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        title: Automatic pull request
