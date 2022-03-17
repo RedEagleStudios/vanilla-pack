@@ -39,7 +39,7 @@ jobs:
         git add -A .
         git config --global user.email "bot@github.com"
         git config --global user.name "Github Bot"
-        git commit -m "Sync with mojang"
+        git commit -m "[Sync] Latest Behaviour Pack & Resource Pack"
 
     - name: Push changes
       uses: ad-m/github-push-action@master
